@@ -10,6 +10,8 @@ jobs:
         uses: actions/setup-node@v3
       - name: install dependencies
         run: npm ci
+      - name: output
+        run: echo "lint started"
       - name: run lint
         run: npm lint
   test:
