@@ -13,7 +13,7 @@ jobs:
       - name: output
         run: echo "lint started"
       - name: run lint
-        run: lint
+        run: npm run lint
   test:
     needs: lint
     runs-on: ubuntu-22.04
