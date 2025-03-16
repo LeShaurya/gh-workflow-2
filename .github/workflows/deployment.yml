@@ -77,4 +77,4 @@ jobs:
       - name: deploy
         run: echo "deploying..."
       - name: output file name
-        run: echo "Deployed script file: ${{ needs.build.outputs.script-file }}"
+        run: echo "${{ needs.build.outputs.script-file }}"
