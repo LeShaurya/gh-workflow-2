@@ -65,7 +65,7 @@ jobs:
           SCRIPT_FILE=$(find dist/assets/*.js -type f -print -quit)
           echo "script-file=$SCRIPT_FILE" >> $GITHUB_ENV
       - name: upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist
