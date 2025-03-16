@@ -1,5 +1,7 @@
 name: Deployment
+
 on: push
+
 jobs:
   lint:
     runs-on: ubuntu-22.04
@@ -14,6 +16,7 @@ jobs:
         run: echo "lint started"
       - name: run lint
         run: npm run lint
+
   test:
     needs: lint
     runs-on: ubuntu-22.04
@@ -26,6 +29,7 @@ jobs:
         run: npm ci
       - name: run tests
         run: npm test
+
   build:
     needs: test
     runs-on: ubuntu-22.04
@@ -38,12 +42,14 @@ jobs:
         run: npm ci
       - name: run build
         run: npm run build
+      - name: List directory contents
+        run: ls -R  # This will list all files to check if `dist` exists
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
-          path: dist
-          
+          path: dist  # Ensure this path is correct
+
   deploy:
     needs: build
     runs-on: ubuntu-22.04
